@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f2">
+  <meta name="description" content="Build clear, client-ready creative briefs in minutes. Free, private, and local-first.">
+  <title>Briefcraft — Creative brief builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css">
+  <script type="module" src="/src/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Briefcraft home"><span class="brand-mark">b.</span><span>briefcraft</span></a>
+      <div class="topbar-right"><span class="privacy-note"><span class="privacy-dot"></span> Private by default</span><span id="save-status" role="status" aria-live="polite">Saved on this device</span></div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LESS GUESSWORK. BETTER CREATIVE WORK.</p>
+          <h1>Turn loose ideas<br><em>into clear direction.</em></h1>
+          <p class="hero-description">A thoughtful brief makes better work possible. Capture the why, who, what and how — then share a brief everyone can work from.</p>
+        </div>
+        <div class="hero-stamp"><span>01</span><span>PLAN<br>WITH INTENT</span><span class="stamp-line"></span></div>
+      </section>
+
+      <div class="workspace-heading">
+        <div><span class="section-index">YOUR WORKSPACE / 01</span><h2>Build a creative brief</h2></div>
+        <div class="preset-control"><label for="preset-select">Start with a template</label><select id="preset-select"><option>Social campaign</option><option>Brand identity</option><option>Print design</option><option>Video / motion</option></select></div>
+      </div>
+
+      <div class="workspace-grid">
+        <section class="editor-panel" aria-label="Brief editor">
+          <form id="brief-form" novalidate>
+            <div class="form-section">
+              <div class="form-section-heading"><span>01</span><div><h3>Project essentials</h3><p>Give the work a name and a little context.</p></div></div>
+              <div class="field-grid two-col">
+                <label class="field full"><span>Project name <b>*</b></span><input name="projectName" placeholder="e.g. Summer launch campaign" autocomplete="off" required></label>
+                <label class="field"><span>Brand / client</span><input name="brand" placeholder="Brand or client name"></label>
+                <label class="field"><span>Project owner</span><input name="owner" placeholder="Who is leading this?"></label>
+                <label class="field"><span>Project type</span><input name="projectType" placeholder="Social campaign"></label>
+                <label class="field"><span>Target due date</span><input name="dueDate" type="date"></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-heading"><span>02</span><div><h3>The thinking</h3><p>Define the problem before jumping into visuals.</p></div></div>
+              <div class="field-grid">
+                <label class="field"><span>Objective <b>*</b></span><textarea name="objective" rows="3" placeholder="What should this project achieve? What problem are we solving?"></textarea></label>
+                <label class="field"><span>Target audience <b>*</b></span><textarea name="audience" rows="3" placeholder="Who are we speaking to? Include relevant needs, context or behaviours."></textarea></label>
+                <label class="field"><span>Key message</span><textarea name="keyMessage" rows="2" placeholder="What is the one thing the audience should remember?"></textarea></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-heading"><span>03</span><div><h3>The output</h3><p>Make the scope and creative direction tangible.</p></div></div>
+              <div class="field-grid two-col">
+                <label class="field"><span>Deliverables <b>*</b></span><textarea name="deliverables" rows="5" placeholder="One deliverable per line"></textarea><small>One item per line</small></label>
+                <label class="field"><span>Channels / placements</span><textarea name="channels" rows="5" placeholder="Where will this work appear?"></textarea></label>
+                <label class="field full"><span>Tone of voice</span><input name="tone" placeholder="e.g. Bold, optimistic, expert-led"></label>
+                <label class="field full"><span>Visual direction</span><textarea name="visualDirection" rows="3" placeholder="Describe the visual world: mood, style, colour, typography, composition…"></textarea></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-heading"><span>04</span><div><h3>Guardrails & references</h3><p>Clarify what must be included and what to avoid.</p></div></div>
+              <div class="field-grid">
+                <label class="field"><span>Must include</span><textarea name="mandatory" rows="2" placeholder="Logos, legal copy, product details, partner credits…"></textarea></label>
+                <label class="field"><span>Avoid</span><textarea name="avoid" rows="2" placeholder="Visual clichés, off-brand colours, unsupported claims…"></textarea></label>
+                <label class="field"><span>References / inspiration</span><textarea name="references" rows="2" placeholder="Paste links or describe reference material."></textarea></label>
+                <div class="field-grid two-col nested-grid">
+                  <label class="field"><span>Budget / range</span><input name="budget" placeholder="Optional"></label>
+                  <label class="field"><span>Additional notes</span><textarea name="notes" rows="2" placeholder="Anything else the team should know?"></textarea></label>
+                </div>
+              </div>
+            </div>
+            <p id="validation-message" class="validation-message" role="status" tabindex="-1"></p>
+          </form>
+        </section>
+
+        <aside class="preview-column" aria-label="Live brief preview">
+          <div class="preview-sticky">
+            <div class="preview-toolbar"><div><span class="section-index">LIVE DOCUMENT / 02</span><h3>Brief preview</h3></div><span class="live-pill"><i></i> LIVE</span></div>
+            <article id="brief-preview" class="brief-paper" aria-live="polite"></article>
+            <div class="export-actions">
+              <button class="button button-primary" id="export-md" type="button"><span>↓</span> Export Markdown</button>
+              <div class="secondary-actions"><button class="button button-secondary" id="export-json" type="button">Export JSON</button><button class="button button-secondary" id="print-brief" type="button">Print / PDF</button></div>
+              <label class="button button-quiet import-button" for="import-json">Import JSON brief<input id="import-json" type="file" accept="application/json,.json"></label>
+              <button class="reset-button" id="reset-brief" type="button">Clear and start over</button>
+            </div>
+            <p class="privacy-footnote">Your brief stays in this browser. Nothing is uploaded to a server.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer><span>BRIEFCRAFT © 2026</span><span>Made for people who make things.</span><a href="https://github.com/akhilalladi-code">GITHUB ↗</a></footer>
+  </div>
+</body>
+</html>
