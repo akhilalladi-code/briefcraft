@@ -1,3 +1,7 @@
+![BRIEFCRAFT — Diwali 2026](./assets/diwali-banner.svg)
+
+<p align="center"><a href="https://akhilalladi-code.github.io/diwali-universe/"><strong>🪔 Explore Diwali Universe 2026 · Interactive celebration ↗</strong></a></p>
+
 # Briefcraft
 
 **Turn loose ideas into clear creative direction.** Briefcraft is a lightweight, local-first creative brief builder for freelance designers, in-house creative teams, and marketing partners.
